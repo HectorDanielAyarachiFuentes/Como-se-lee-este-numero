@@ -1,0 +1,487 @@
+@charset "UTF-8";
+/* --- Variables de Diseño Profesionales y Elegantes --- */
+:root {
+  /* Colores Base */
+  --color-fondo: #F0F2F5;
+  --color-fondo-secundario: #E8ECF1;
+  --color-blanco: #FFFFFF;
+  /* Colores de Texto */
+  --color-texto: #2C3E50;
+  --color-texto-secundario: #6C7A89;
+  --color-placeholder: #9BA8B5;
+  /* Colores de Marca y Acceso */
+  --color-principal: #34495E;
+  --color-principal-dark: #2C3E50;
+  --color-principal-light: rgba(52, 73, 94, 0.15);
+  /* Colores para Partes del Número */
+  --color-entero: #27AE60;
+  --color-decimal: #C0392B;
+  --color-coma: #E67E22;
+  /* Colores para Resaltado y Bordes/Sombras */
+  --color-highlight: #F39C12;
+  --color-borde: #D3DCE6;
+  --color-borde-claro: #E9EEF3;
+  --color-sombra: rgba(0, 0, 0, 0.06);
+  --color-sombra-fuerte: rgba(0, 0, 0, 0.12);
+  /* Variables SVG */
+  --color-linea-entera: var(--color-entero);
+  --color-linea-decimal: var(--color-borde);
+  --color-highlight-line: var(--color-highlight);
+}
+
+/* --- Estilos Generales y Reseteo Suave --- */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: var(--color-fondo);
+  color: var(--color-texto);
+  margin: 0;
+  padding: 2.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  line-height: 1.6;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+@media (max-width: 768px) {
+  body {
+    padding: 1.5rem;
+  }
+}
+@media (max-width: 576px) {
+  body {
+    padding: 1rem;
+    font-size: 15px;
+  }
+}
+@media (max-width: 375px) {
+  body {
+    padding: 0.8rem;
+  }
+}
+
+/* Contenedor Principal de la Aplicación */
+.container {
+  max-width: 900px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+@media (max-width: 768px) {
+  .container {
+    gap: 1.5rem;
+  }
+}
+@media (max-width: 576px) {
+  .container {
+    gap: 1rem;
+  }
+}
+
+/* --- Estilos del Encabezado (Header) --- */
+header {
+  text-align: center;
+  margin-bottom: 2rem;
+  padding: 2rem 0;
+}
+header h1 {
+  font-family: "Roboto", sans-serif;
+  color: var(--color-principal);
+  font-size: 2.6rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.75rem;
+}
+header p {
+  font-size: 1.05rem;
+  color: var(--color-texto-secundario);
+  max-width: 650px;
+  margin: 0.75rem auto 0;
+}
+@media (max-width: 768px) {
+  header {
+    margin-bottom: 1.5rem;
+    padding: 1.5rem 0;
+  }
+  header h1 {
+    font-size: 2.2rem;
+  }
+  header p {
+    font-size: 1rem;
+    max-width: 500px;
+  }
+}
+@media (max-width: 576px) {
+  header {
+    margin-bottom: 1rem;
+    padding: 1rem 0;
+  }
+  header h1 {
+    font-size: 1.8rem;
+    letter-spacing: 0;
+  }
+  header p {
+    font-size: 0.95rem;
+    max-width: 90%;
+  }
+}
+@media (max-width: 375px) {
+  header h1 {
+    font-size: 1.6rem;
+  }
+}
+
+/* --- Sección de Entrada del Número --- */
+.input-section {
+  text-align: center;
+  background-color: var(--color-blanco);
+  border-radius: 10px;
+  padding: 2.2rem;
+  box-shadow: 0 4px 10px var(--color-sombra);
+  border: 1px solid var(--color-borde-claro);
+}
+.input-section label {
+  display: block;
+  font-size: 1.15rem;
+  font-weight: 500;
+  margin-bottom: 1.25rem;
+  color: var(--color-texto);
+}
+.input-section #numero {
+  padding: 1.1rem 1.4rem;
+  font-size: 1.7rem;
+  width: 55%;
+  max-width: 480px;
+  border: 2px solid var(--color-borde);
+  border-radius: 8px;
+  text-align: center;
+  font-family: "Roboto Mono", monospace;
+  font-weight: 700;
+  color: var(--color-principal);
+  background-color: var(--color-fondo-secundario);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+}
+.input-section #numero::-moz-placeholder {
+  color: var(--color-placeholder);
+  font-weight: 400;
+}
+.input-section #numero::placeholder {
+  color: var(--color-placeholder);
+  font-weight: 400;
+}
+.input-section #numero:focus {
+  outline: none;
+  border-color: var(--color-principal);
+  box-shadow: 0 0 0 4px var(--color-principal-light);
+}
+@media (max-width: 768px) {
+  .input-section {
+    padding: 1.8rem;
+  }
+  .input-section label {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+  }
+  .input-section #numero {
+    padding: 1rem 1.2rem;
+    font-size: 1.5rem;
+    width: 70%;
+    max-width: 400px;
+  }
+}
+@media (max-width: 576px) {
+  .input-section {
+    padding: 1.2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px var(--color-sombra);
+  }
+  .input-section label {
+    font-size: 1rem;
+    margin-bottom: 0.8rem;
+  }
+  .input-section #numero {
+    padding: 0.8rem 1rem;
+    font-size: 1.3rem;
+    width: 90%;
+    border-radius: 6px;
+  }
+  .input-section #numero:focus {
+    box-shadow: 0 0 0 3px var(--color-principal-light);
+  }
+}
+@media (max-width: 375px) {
+  .input-section #numero {
+    font-size: 1.2rem;
+    padding: 0.7rem 0.8rem;
+  }
+}
+
+/* --- Botones de Reproducción (Play Button) --- */
+.play-btn {
+  background-color: var(--color-principal);
+  color: var(--color-blanco);
+  border: none;
+  padding: 0.9rem 2rem;
+  border-radius: 7px;
+  cursor: pointer;
+  font-size: 1.05rem;
+  font-weight: 500;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  box-shadow: 0 3px 7px var(--color-sombra);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  margin-top: 0.75rem;
+}
+.play-btn:hover {
+  background-color: var(--color-principal-dark);
+  transform: translateY(-1px);
+  box-shadow: 0 5px 10px var(--color-sombra-fuerte);
+}
+.play-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 1px 3px var(--color-sombra);
+  background-color: var(--color-principal-dark);
+}
+@media (max-width: 768px) {
+  .play-btn {
+    padding: 0.8rem 1.8rem;
+    font-size: 1rem;
+    gap: 0.5rem;
+  }
+}
+@media (max-width: 576px) {
+  .play-btn {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.95rem;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px var(--color-sombra);
+    gap: 0.4rem;
+    margin-top: 0.4rem;
+  }
+  .play-btn:hover {
+    transform: translateY(0);
+    box-shadow: 0 3px 6px var(--color-sombra-fuerte);
+  }
+}
+@media (max-width: 375px) {
+  .play-btn {
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+  }
+}
+
+/* --- Estilos de las Tarjetas de Contenido (Cards) --- */
+.card {
+  background-color: var(--color-blanco);
+  border-radius: 10px;
+  padding: 2rem;
+  box-shadow: 0 4px 10px var(--color-sombra), 0 1px 3px var(--color-sombra);
+  border: 1px solid var(--color-borde-claro);
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+.card h2 {
+  font-size: 1.7rem;
+  color: var(--color-principal);
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+@media (max-width: 768px) {
+  .card {
+    padding: 1.7rem;
+    gap: 1rem;
+  }
+  .card h2 {
+    font-size: 1.5rem;
+  }
+}
+@media (max-width: 576px) {
+  .card {
+    padding: 1.2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px var(--color-sombra);
+    gap: 0.8rem;
+  }
+  .card h2 {
+    font-size: 1.3rem;
+    margin-bottom: 0.3rem;
+  }
+}
+@media (max-width: 375px) {
+  .card h2 {
+    font-size: 1.2rem;
+  }
+}
+
+/* --- Cajas de Resultado (Result Box) --- */
+.result-box {
+  background-color: var(--color-fondo-secundario);
+  border: 1px solid var(--color-borde);
+  padding: 1.3rem 1.6rem;
+  border-radius: 7px;
+  min-height: 65px;
+  display: flex;
+  align-items: center;
+  font-family: "Roboto Mono", monospace;
+  font-size: 1.4rem;
+  color: var(--color-texto);
+  overflow-x: auto;
+  white-space: nowrap;
+}
+.result-box .placeholder-text {
+  color: var(--color-placeholder);
+  font-style: italic;
+  font-size: 1.2rem;
+}
+@media (max-width: 768px) {
+  .result-box {
+    padding: 1rem 1.2rem;
+    font-size: 1.2rem;
+    min-height: 60px;
+  }
+  .result-box .placeholder-text {
+    font-size: 1.1rem;
+  }
+}
+@media (max-width: 576px) {
+  .result-box {
+    padding: 0.8rem 1rem;
+    font-size: 1.1rem;
+    min-height: 50px;
+    border-radius: 6px;
+  }
+  .result-box .placeholder-text {
+    font-size: 0.95rem;
+  }
+}
+@media (max-width: 375px) {
+  .result-box {
+    font-size: 1rem;
+  }
+}
+
+/* --- Modo Fonético --- */
+.phonetic-box {
+  flex-wrap: wrap;
+  gap: 0.7em 0.5em;
+  white-space: normal;
+}
+.phonetic-box .palabra-fonetica {
+  padding: 0.4em 0.7em;
+  border-radius: 5px;
+  background-color: var(--color-fondo-secundario);
+  color: var(--color-texto);
+  transition: background-color 0.2s ease-in-out, transform 0.1s ease-in-out;
+  cursor: default;
+  line-height: 1.2;
+  display: inline-block;
+}
+.phonetic-box .palabra-fonetica.highlight {
+  background-color: var(--color-highlight);
+  color: var(--color-blanco);
+  font-weight: 600;
+  transform: scale(1.02);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+@media (max-width: 576px) {
+  .phonetic-box {
+    gap: 0.4em 0.3em;
+  }
+  .phonetic-box .palabra-fonetica {
+    padding: 0.25em 0.5em;
+    border-radius: 4px;
+  }
+}
+
+/* --- Modo Formal (SVG) --- */
+.svg-box {
+  padding: 0;
+  background: transparent;
+  border: none;
+  min-height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+#aprendizaje-formal-wrapper svg {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+  background-color: var(--color-blanco);
+  box-shadow: 0 4px 10px var(--color-sombra);
+}
+#aprendizaje-formal-wrapper svg .svg-numero {
+  font-size: 68px;
+  font-family: "Roboto Mono", monospace;
+  font-weight: bold;
+  fill: var(--color-texto);
+}
+#aprendizaje-formal-wrapper svg .svg-etiqueta-principal {
+  font-size: 22px;
+  font-family: "Roboto", sans-serif;
+  fill: var(--color-principal);
+  font-weight: 500;
+  text-anchor: middle;
+}
+#aprendizaje-formal-wrapper svg .svg-etiqueta-vertical {
+  font-size: 15px;
+  font-family: "Roboto", sans-serif;
+  fill: var(--color-texto-secundario);
+  text-anchor: middle;
+}
+#aprendizaje-formal-wrapper svg #svg-entero-texto.highlight,
+#aprendizaje-formal-wrapper svg #svg-decimales-g.highlight text,
+#aprendizaje-formal-wrapper svg #svg-etiquetas-g.highlight text {
+  transition: fill 0.1s ease-in-out;
+  fill: var(--color-highlight) !important;
+}
+@media (max-width: 768px) {
+  #aprendizaje-formal-wrapper svg .svg-numero {
+    font-size: 58px;
+  }
+  #aprendizaje-formal-wrapper svg .svg-etiqueta-principal {
+    font-size: 20px;
+  }
+  #aprendizaje-formal-wrapper svg .svg-etiqueta-vertical {
+    font-size: 14px;
+  }
+}
+@media (max-width: 576px) {
+  #aprendizaje-formal-wrapper svg .svg-numero {
+    font-size: 48px;
+  }
+  #aprendizaje-formal-wrapper svg .svg-etiqueta-principal {
+    font-size: 16px;
+  }
+  #aprendizaje-formal-wrapper svg .svg-etiqueta-vertical {
+    font-size: 12px;
+  }
+}
+@media (max-width: 375px) {
+  #aprendizaje-formal-wrapper svg .svg-numero {
+    font-size: 38px;
+  }
+  #aprendizaje-formal-wrapper svg .svg-etiqueta-principal {
+    font-size: 14px;
+  }
+  #aprendizaje-formal-wrapper svg .svg-etiqueta-vertical {
+    font-size: 10px;
+  }
+}/*# sourceMappingURL=main.css.map */

@@ -1,0 +1,181 @@
+/* --- Estilos de las Tarjetas de Contenido (Cards) --- */
+.card {
+    background-color: var(--color-blanco);
+    border-radius: 10px;
+    padding: 2rem;
+    box-shadow: 0 4px 10px var(--color-sombra), 0 1px 3px var(--color-sombra);
+    border: 1px solid var(--color-borde-claro);
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+
+    h2 {
+        font-size: 1.7rem;
+        color: var(--color-principal);
+        margin-top: 0;
+        margin-bottom: 0.5rem;
+        font-weight: 600;
+    }
+
+    // Media Queries
+    @media (max-width: 768px) {
+        padding: 1.7rem;
+        gap: 1rem;
+        h2 { font-size: 1.5rem; }
+    }
+
+    @media (max-width: 576px) {
+        padding: 1.2rem;
+        border-radius: 8px;
+        box-shadow: 0 2px 6px var(--color-sombra);
+        gap: 0.8rem;
+        h2 { 
+            font-size: 1.3rem;
+            margin-bottom: 0.3rem;
+        }
+    }
+    @media (max-width: 375px) {
+        h2 { font-size: 1.2rem; }
+    }
+}
+
+/* --- Cajas de Resultado (Result Box) --- */
+.result-box {
+    background-color: var(--color-fondo-secundario);
+    border: 1px solid var(--color-borde);
+    padding: 1.3rem 1.6rem;
+    border-radius: 7px;
+    min-height: 65px;
+    display: flex;
+    align-items: center;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 1.4rem;
+    color: var(--color-texto);
+    overflow-x: auto;
+    white-space: nowrap;
+
+    .placeholder-text {
+        color: var(--color-placeholder);
+        font-style: italic;
+        font-size: 1.2rem;
+    }
+
+    // Media Queries
+    @media (max-width: 768px) {
+        padding: 1rem 1.2rem;
+        font-size: 1.2rem;
+        min-height: 60px;
+        .placeholder-text { font-size: 1.1rem; }
+    }
+    
+    @media (max-width: 576px) {
+        padding: 0.8rem 1rem;
+        font-size: 1.1rem;
+        min-height: 50px;
+        border-radius: 6px;
+        .placeholder-text { font-size: 0.95rem; }
+    }
+
+    @media (max-width: 375px) {
+        font-size: 1rem;
+    }
+}
+
+/* --- Modo Fonético --- */
+.phonetic-box {
+    flex-wrap: wrap;
+    gap: 0.7em 0.5em;
+    white-space: normal;
+
+    .palabra-fonetica {
+        padding: 0.4em 0.7em;
+        border-radius: 5px;
+        background-color: var(--color-fondo-secundario);
+        color: var(--color-texto);
+        transition: background-color 0.2s ease-in-out, transform 0.1s ease-in-out;
+        cursor: default;
+        line-height: 1.2;
+        display: inline-block;
+
+        &.highlight {
+            background-color: var(--color-highlight);
+            color: var(--color-blanco);
+            font-weight: 600;
+            transform: scale(1.02);
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+        }
+    }
+    
+    @media (max-width: 576px) {
+        gap: 0.4em 0.3em;
+        .palabra-fonetica {
+            padding: 0.25em 0.5em;
+            border-radius: 4px;
+        }
+    }
+}
+
+/* --- Modo Formal (SVG) --- */
+.svg-box {
+    padding: 0;
+    background: transparent;
+    border: none;
+    min-height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+#aprendizaje-formal-wrapper svg {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+    background-color: var(--color-blanco);
+    box-shadow: 0 4px 10px var(--color-sombra);
+
+    .svg-numero { 
+        font-size: 68px;
+        font-family: 'Roboto Mono', monospace; 
+        font-weight: bold; 
+        fill: var(--color-texto);
+    }
+    .svg-etiqueta-principal { 
+        font-size: 22px;
+        font-family: 'Roboto', sans-serif; 
+        fill: var(--color-principal); 
+        font-weight: 500; 
+        text-anchor: middle; 
+    }
+    .svg-etiqueta-vertical { 
+        font-size: 15px;
+        font-family: 'Roboto', sans-serif; 
+        fill: var(--color-texto-secundario);
+        text-anchor: middle; 
+    }
+
+    #svg-entero-texto.highlight, 
+    #svg-decimales-g.highlight text,
+    #svg-etiquetas-g.highlight text {
+        transition: fill 0.1s ease-in-out;
+        fill: var(--color-highlight) !important;
+    }
+
+    // Media Queries for SVG elements
+    @media (max-width: 768px) {
+        .svg-numero { font-size: 58px; }
+        .svg-etiqueta-principal { font-size: 20px; }
+        .svg-etiqueta-vertical { font-size: 14px; }
+    }
+    @media (max-width: 576px) {
+        .svg-numero { font-size: 48px; }
+        .svg-etiqueta-principal { font-size: 16px; }
+        .svg-etiqueta-vertical { font-size: 12px; }
+    }
+    @media (max-width: 375px) {
+        .svg-numero { font-size: 38px; }
+        .svg-etiqueta-principal { font-size: 14px; }
+        .svg-etiqueta-vertical { font-size: 10px; }
+    }
+}
