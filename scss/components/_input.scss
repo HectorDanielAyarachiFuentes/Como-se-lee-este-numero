@@ -1,35 +1,60 @@
 // scss/components/_input.scss
 
-// ... (tus otros estilos de input)
-
 @layer components {
-  // Estilos para el contenedor del input, para que parezca una tarjeta
+  // El contenedor principal que actúa como una tarjeta.
   .input-section {
     background-color: var(--color-blanco);
     border-radius: var(--border-radius-md);
-    padding: var(--spacing-lg);
+    padding: var(--spacing-md) var(--spacing-lg); // Un poco más de padding horizontal.
     box-shadow: var(--shadow-md);
+    
+    // --- CLAVE: ALINEACIÓN PERFECTA ---
     display: flex;
-    align-items: center;
-    gap: var(--spacing-md);
-    font-size: 1.1rem;
+    align-items: center; // Centra verticalmente la etiqueta y el input.
+    gap: var(--spacing-md); // Espacio consistente entre la etiqueta y el input.
+  }
+
+  // Estilos para la etiqueta "Introduce el número:".
+  .input-section label {
+    font-weight: var(--font-weight-medium);
+    color: var(--color-texto-secundario);
+    white-space: nowrap; // Evita que la etiqueta se rompa en dos líneas.
+    flex-shrink: 0; // Previene que la etiqueta se encoja si no hay espacio.
+  }
+
+  // Estilos mejorados para el campo de texto.
+  .input-section input[type="text"] {
+    width: 100%; // Ocupa el espacio disponible.
+    flex-grow: 1; // Permite que el input crezca para llenar el espacio.
+    
+    // Apariencia visual
+    border: 2px solid var(--color-borde);
+    border-radius: var(--border-radius-sm);
+    padding: var(--spacing-sm) var(--spacing-md);
+    background-color: var(--color-fondo-secundario);
+
+    // --- MEJORAS DE TIPOGRAFÍA ---
+    font-size: 1.3rem; // Número más grande y legible.
+    font-family: var(--font-family-mono); // Fuente monoespaciada, ideal para números.
+    color: var(--color-texto);
+
+    // Transiciones y estado de foco
+    outline: none; // Eliminamos el contorno azul por defecto del navegador.
+    transition: all var(--transition-fast);
   }
   
-  .input-section label {
-      font-weight: var(--font-weight-medium);
-      color: var(--color-texto-secundario);
+  // Estilo específico para el texto del placeholder.
+  .input-section input[type="text"]::placeholder {
+    color: var(--color-placeholder);
+    font-family: var(--font-family-base); // Usamos la fuente normal para el placeholder.
+    font-size: 1.1rem;
   }
 
-  .input-section input {
-      flex-grow: 1; // Hace que el input ocupe el espacio restante
-      border: 1px solid var(--color-borde);
-      border-radius: var(--border-radius-sm);
-      padding: var(--spacing-sm);
-  }
-
-  .input-section input:focus {
-      outline: none;
-      border-color: var(--color-principal);
-      box-shadow: var(--shadow-focus);
+  // --- ESTADO DE FOCO PERSONALIZADO ---
+  // Se activa cuando el usuario hace clic en el input.
+  .input-section input[type="text"]:focus {
+    border-color: var(--color-principal);
+    background-color: var(--color-blanco);
+    box-shadow: var(--shadow-focus); // Añade un "resplandor" suave.
   }
 }
