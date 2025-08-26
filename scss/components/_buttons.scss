@@ -1,54 +1,54 @@
-/* --- Botones de Reproducción (Play Button) --- */
+/* ==========================================================================
+   COMPONENTE: BOTÓN DE ACCIÓN
+   ========================================================================== */
+
 .play-btn {
-    background-color: var(--color-principal);
-    color: var(--color-blanco);
-    border: none;
-    padding: 0.9rem 2rem;
-    border-radius: 7px;
-    cursor: pointer;
-    font-size: 1.05rem;
-    font-weight: 500;
-    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
-    box-shadow: 0 3px 7px var(--color-sombra);
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.6rem;
-    margin-top: 0.75rem;
+  display: inline-flex; // Ideal para alinear ícono y texto
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-sm);
+  
+  padding: var(--spacing-sm) var(--spacing-xl);
+  font-size: 1.05rem;
+  font-weight: var(--font-weight-medium);
+  
+  background-color: var(--color-principal);
+  color: var(--color-blanco);
+  border: none;
+  border-radius: var(--border-radius-sm);
+  box-shadow: var(--shadow-sm);
+  
+  cursor: pointer;
+  text-align: center;
+  transition: 
+    background-color var(--transition-fast), 
+    transform var(--transition-fast), 
+    box-shadow var(--transition-fast);
+  
+  // Usamos nuestro mixin de foco
+  @include focus-ring(var(--border-radius-sm));
 
-    &:hover {
-        background-color: var(--color-principal-dark);
-        transform: translateY(-1px);
-        box-shadow: 0 5px 10px var(--color-sombra-fuerte);
-    }
+  &:hover {
+    background-color: var(--color-principal-dark);
+    transform: translateY(-2px); // Un poco más de efecto
+    box-shadow: var(--shadow-md);
+  }
 
-    &:active {
-        transform: translateY(0);
-        box-shadow: 0 1px 3px var(--color-sombra);
-        background-color: var(--color-principal-dark);
-    }
+  &:active {
+    transform: translateY(0);
+    box-shadow: var(--shadow-sm);
+  }
 
-    // Media Queries
-    @media (max-width: 768px) {
-        padding: 0.8rem 1.8rem;
-        font-size: 1rem;
-        gap: 0.5rem;
-    }
-
-    @media (max-width: 576px) {
-        padding: 0.6rem 1.2rem;
-        font-size: 0.95rem;
-        border-radius: 6px;
-        box-shadow: 0 2px 4px var(--color-sombra);
-        gap: 0.4rem;
-        margin-top: 0.4rem;
-        &:hover {
-            transform: translateY(0);
-            box-shadow: 0 3px 6px var(--color-sombra-fuerte);
-        }
-    }
-     @media (max-width: 375px) {
-        font-size: 0.9rem;
-        padding: 0.5rem 1rem;
-    }
+  // Estado deshabilitado para una UI más completa
+  &[disabled] {
+    background-color: var(--color-texto-secundario);
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+  }
+  
+  @include breakpoint(sm) {
+    padding: var(--spacing-sm) var(--spacing-lg);
+    font-size: 0.95rem;
+  }
 }

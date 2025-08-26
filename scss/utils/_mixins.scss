@@ -1,0 +1,28 @@
+/* ==========================================================================
+   MIXINS GLOBALES
+   ========================================================================== */
+
+// Mixin para manejar breakpoints de forma limpia y semántica.
+// Uso: @include breakpoint(md) { ...estilos... }
+@mixin breakpoint($size) {
+  @if $size == lg {
+    @media (max-width: $breakpoint-lg) { @content; }
+  }
+  @else if $size == md {
+    @media (max-width: $breakpoint-md) { @content; }
+  }
+  @else if $size == sm {
+    @media (max-width: $breakpoint-sm) { @content; }
+  }
+}
+
+// Mixin para un estado de foco accesible y moderno.
+// Se activa con el teclado, pero no con el ratón.
+// Uso: @include focus-ring;
+@mixin focus-ring($radius: var(--border-radius-sm)) {
+  &:focus-visible {
+    outline: none;
+    border-radius: $radius; // Asegura que la sombra siga la forma del elemento
+    box-shadow: var(--shadow-focus);
+  }
+}

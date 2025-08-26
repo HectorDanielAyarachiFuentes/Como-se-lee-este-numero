@@ -1,12 +1,24 @@
-// 1. Base y Variables
-@import 'base/variables';
-@import 'base/base';
+// Definimos el orden de las capas. Base -> Layout -> Componentes.
+@layer base, layout, components;
 
-// 2. Layout
-@import 'layout/container';
-@import 'layout/header';
+@layer base {
+  // 1. Base y Variables
+  @import 'base/variables';
+  @import 'base/base';
+}
 
-// 3. Componentes
-@import 'components/input';
-@import 'components/buttons';
-@import 'components/cards';
+// Importamos las utilidades (no necesitan capa, son herramientas)
+@import 'utils/mixins';
+
+@layer layout {
+  // 2. Layout (Lo haremos después)
+  @import 'layout/container';
+  @import 'layout/header';
+}
+
+@layer components {
+  // 3. Componentes
+  @import 'components/input';
+  @import 'components/buttons';
+  @import 'components/cards';
+}

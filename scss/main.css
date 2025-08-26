@@ -1,69 +1,112 @@
 @charset "UTF-8";
-/* --- Variables de Diseño Profesionales y Elegantes --- */
+/* ==========================================================================
+   1. VARIABLES DE DISEÑO (DESIGN TOKENS)
+   ========================================================================== */
 :root {
-  /* Colores Base */
+  /* --- Paleta de Colores --- */
   --color-fondo: #F0F2F5;
   --color-fondo-secundario: #E8ECF1;
   --color-blanco: #FFFFFF;
-  /* Colores de Texto */
   --color-texto: #2C3E50;
   --color-texto-secundario: #6C7A89;
   --color-placeholder: #9BA8B5;
-  /* Colores de Marca y Acceso */
   --color-principal: #34495E;
   --color-principal-dark: #2C3E50;
   --color-principal-light: rgba(52, 73, 94, 0.15);
-  /* Colores para Partes del Número */
   --color-entero: #27AE60;
   --color-decimal: #C0392B;
   --color-coma: #E67E22;
-  /* Colores para Resaltado y Bordes/Sombras */
   --color-highlight: #F39C12;
   --color-borde: #D3DCE6;
   --color-borde-claro: #E9EEF3;
-  --color-sombra: rgba(0, 0, 0, 0.06);
-  --color-sombra-fuerte: rgba(0, 0, 0, 0.12);
-  /* Variables SVG */
-  --color-linea-entera: var(--color-entero);
-  --color-linea-decimal: var(--color-borde);
-  --color-highlight-line: var(--color-highlight);
+  /* --- Tipografía --- */
+  --font-family-base: "Roboto", sans-serif;
+  --font-family-mono: "Roboto Mono", monospace;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-bold: 700;
+  /* --- Escala de Espaciado (Consistencia Visual) --- */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-xxl: 2.5rem;
+  /* --- Bordes y Transiciones --- */
+  --border-radius-sm: 6px;
+  --border-radius-md: 10px;
+  --transition-fast: 0.2s ease-in-out;
+  --transition-smooth: 0.3s ease;
+  /* --- Sombras (Elevación) --- */
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 4px 10px rgba(0, 0, 0, 0.08), 0 1px 3px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08);
+  --shadow-focus: 0 0 0 4px var(--color-principal-light);
 }
 
-/* --- Estilos Generales y Reseteo Suave --- */
-* {
+/* ==========================================================================
+   2. VARIABLES DE SCSS (PARA EL COMPILADOR)
+   ========================================================================== */
+/* ==========================================================================
+   BASE Y RESETEO MODERNO
+   ========================================================================== */
+*,
+*::before,
+*::after {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: clamp(0.9375rem, 0.89rem + 0.23vw, 1rem);
+  scroll-behavior: smooth;
 }
 
 body {
-  font-family: "Roboto", sans-serif;
+  font-family: var(--font-family-base);
+  font-weight: var(--font-weight-regular);
   background-color: var(--color-fondo);
   color: var(--color-texto);
-  margin: 0;
-  padding: 2.5rem;
+  min-height: 100vh;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  min-height: 100vh;
-  line-height: 1.6;
-  font-size: 16px;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: var(--spacing-xxl) var(--spacing-lg);
 }
-@media (max-width: 768px) {
-  body {
-    padding: 1.5rem;
+
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+input, button, textarea, select {
+  font: inherit;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }
-@media (max-width: 576px) {
-  body {
-    padding: 1rem;
-    font-size: 15px;
-  }
+::-moz-selection {
+  background-color: var(--color-principal);
+  color: var(--color-blanco);
 }
-@media (max-width: 375px) {
-  body {
-    padding: 0.8rem;
-  }
+::selection {
+  background-color: var(--color-principal);
+  color: var(--color-blanco);
 }
 
 /* Contenedor Principal de la Aplicación */
