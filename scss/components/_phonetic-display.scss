@@ -1,5 +1,5 @@
 // scss/components/_phonetic-display.scss
-
+@use 'variables' as *; // 
 @layer components {
 
   // El contenedor principal para el resultado fonético.

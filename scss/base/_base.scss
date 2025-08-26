@@ -1,74 +1,80 @@
-/* ==========================================================================
-   BASE Y RESETEO MODERNO
-   ========================================================================== */
+// scss/base/_base.scss
 
-// 1. Reseteo suave y configuración de box-sizing.
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+// 1. DECLARACIÓN DE DEPENDENCIAS
+// Le decimos a este archivo que necesita las variables.
+// La ruta es simple porque están en la misma carpeta 'base'.
+@use 'variables' as *;
 
-// 2. Configuración de la raíz (HTML) para tipografía fluida y scroll suave.
-html {
-  // `clamp(MIN, IDEAL, MAX)`
-  // El tamaño de la fuente será como mínimo 15px, como máximo 16px,
-  // y crecerá de forma fluida entre un ancho de 375px y 1200px.
-  font-size: clamp(0.9375rem, 0.89rem + 0.23vw, 1rem);
-  scroll-behavior: smooth;
-}
+// 2. APLICACIÓN DE ESTILOS DENTRO DE SU CAPA
+@layer base {
 
-// 3. Estilos fundamentales para el Body.
-body {
-  font-family: var(--font-family-base);
-  font-weight: var(--font-weight-regular);
-  background-color: var(--color-fondo);
-  color: var(--color-texto);
-  min-height: 100vh;
-  line-height: 1.6;
-  
-  // Mejora del renderizado de fuentes
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  /* ==========================================================================
+     BASE Y RESETEO MODERNO
+     ========================================================================== */
 
-  // Usamos Flexbox para centrar el contenedor principal
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  padding: var(--spacing-xxl) var(--spacing-lg); // Usamos nuestra escala de espaciado
-}
-
-// 4. Hacer que las imágenes y medios sean responsivos por defecto.
-img, picture, video, canvas, svg {
-  display: block;
-  max-width: 100%;
-}
-
-// 5. Eliminar estilos por defecto de botones y inputs para un control total.
-input, button, textarea, select {
-  font: inherit; // Hereda la fuente del body
-}
-
-// 6. Accesibilidad: Respeta las preferencias del usuario para reducir movimiento.
-@media (prefers-reduced-motion: reduce) {
-  html:focus-within {
-    scroll-behavior: auto;
-  }
-  
+  // 1. Reseteo suave y configuración de box-sizing.
   *,
   *::before,
   *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
   }
-}
 
-// 7. Detalle visual: Estilo del texto seleccionado.
-::selection {
-  background-color: var(--color-principal);
-  color: var(--color-blanco);
+  // 2. Configuración de la raíz (HTML) para tipografía fluida y scroll suave.
+  html {
+    font-size: clamp(0.9375rem, 0.89rem + 0.23vw, 1rem);
+    scroll-behavior: smooth;
+  }
+
+  // 3. Estilos fundamentales para el Body.
+  body {
+    font-family: var(--font-family-base);
+    font-weight: var(--font-weight-regular);
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+    min-height: 100vh;
+    line-height: 1.6;
+    
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: var(--spacing-xxl) var(--spacing-lg);
+  }
+
+  // 4. Hacer que las imágenes y medios sean responsivos por defecto.
+  img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+  }
+
+  // 5. Eliminar estilos por defecto de botones y inputs para un control total.
+  input, button, textarea, select {
+    font: inherit;
+  }
+
+  // 6. Accesibilidad: Respeta las preferencias del usuario para reducir movimiento.
+  @media (prefers-reduced-motion: reduce) {
+    html:focus-within {
+      scroll-behavior: auto;
+    }
+    
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  // 7. Detalle visual: Estilo del texto seleccionado.
+  ::selection {
+    background-color: var(--color-principal);
+    color: var(--color-blanco);
+  }
 }

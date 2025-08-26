@@ -1,5 +1,5 @@
 // scss/layout/_header.scss
-
+@use 'variables' as *; // 
 @layer layout {
   // Aplicamos estilos directamente a la etiqueta <header> que está dentro de .container
   .container > header {

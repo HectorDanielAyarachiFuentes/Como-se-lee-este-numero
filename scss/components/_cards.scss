@@ -1,7 +1,7 @@
 /* ==========================================================================
    COMPONENTE: TARJETA DE CONTENIDO
    ========================================================================== */
-
+@use 'variables' as *; // 
 .card {
   background-color: var(--color-blanco);
   border-radius: var(--border-radius-md);

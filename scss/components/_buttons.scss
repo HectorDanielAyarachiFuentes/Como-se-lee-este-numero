@@ -1,7 +1,7 @@
 /* ==========================================================================
    COMPONENTE: BOTÓN DE ACCIÓN
    ========================================================================== */
-
+@use 'variables' as *; // 
 .play-btn {
   display: inline-flex; // Ideal para alinear ícono y texto
   align-items: center;

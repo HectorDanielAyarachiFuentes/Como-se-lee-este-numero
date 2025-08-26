@@ -1,28 +1,23 @@
-// scss/main.scss
+// scss/main.scss (Versión moderna con @use)
 
-// 1. HERRAMIENTAS Y CONFIGURACIÓN (Siempre primero)
-@import 'base/variables';
-@import 'utils/mixins';
-@import 'utils/helpers'; 
+// 1. CARGA DE MÓDULOS CON @use
+// @use SIEMPRE debe ir al principio del todo.
+// Estos archivos contienen "herramientas" (variables, mixins) y no generan CSS por sí mismos.
+@use 'base/variables';
+@use 'utils/mixins';
 
 // 2. DEFINICIÓN DEL ORDEN DE LAS CAPAS
-// El orden aquí define la especificidad: base < layout < components
+// Le decimos al navegador el orden de prioridad de nuestros estilos.
 @layer base, layout, components;
 
-// 3. IMPORTACIÓN DE ESTILOS DENTRO DE SUS CAPAS
-@layer base {
-  @import 'base/base';
-}
-
-@layer layout {
-  // ¡Aquí están nuestros nuevos archivos!
-  @import 'layout/header';
-  @import 'layout/container';
-}
-
-@layer components {
-  @import 'components/input';
-  @import 'components/buttons';
-  @import 'components/cards';
-  @import 'components/phonetic-display';
-}
+// 3. CARGA DE ARCHIVOS QUE GENERAN CSS
+// Sass es lo suficientemente inteligente como para tomar el CSS de estos
+// archivos y añadirlo al output final en el orden en que los llamamos.
+@use 'base/base';
+@use 'layout/header';
+@use 'layout/container';
+@use 'components/cards';
+@use 'components/buttons';
+@use 'components/input';
+@use 'components/phonetic-display';
+@use 'utils/helpers';

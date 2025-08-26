@@ -1,60 +1,63 @@
 // scss/components/_input.scss
-
+@use 'variables' as *; // 
 @layer components {
-  // El contenedor principal que actúa como una tarjeta.
+
+  // El contenedor ahora actúa como el campo de texto visual.
   .input-section {
     background-color: var(--color-blanco);
     border-radius: var(--border-radius-md);
-    padding: var(--spacing-md) var(--spacing-lg); // Un poco más de padding horizontal.
-    box-shadow: var(--shadow-md);
+    box-shadow: var(--shadow-sm); // Una sombra más suave para el estado normal.
     
-    // --- CLAVE: ALINEACIÓN PERFECTA ---
+    // --- LA CLAVE: EL BORDE ESTÁ EN EL CONTENEDOR ---
+    border: 2px solid var(--color-borde);
+    
+    // Alineación
     display: flex;
-    align-items: center; // Centra verticalmente la etiqueta y el input.
-    gap: var(--spacing-md); // Espacio consistente entre la etiqueta y el input.
+    align-items: center;
+    gap: var(--spacing-sm); // Reducimos un poco el espacio para un look más compacto.
+    padding: 0 var(--spacing-md); // El padding vertical lo controlará el input.
+
+    // Transición suave para el estado de foco.
+    transition: all var(--transition-fast);
+    
+    // --- MAGIA MODERNA CON :focus-within ---
+    // Cuando el <input> DENTRO de este div reciba el foco...
+    &:focus-within {
+      border-color: var(--color-principal); // ...el borde del CONTENEDOR cambia de color.
+      box-shadow: var(--shadow-focus);     // ...y el CONTENEDOR recibe el resplandor.
+    }
   }
 
-  // Estilos para la etiqueta "Introduce el número:".
   .input-section label {
     font-weight: var(--font-weight-medium);
     color: var(--color-texto-secundario);
-    white-space: nowrap; // Evita que la etiqueta se rompa en dos líneas.
-    flex-shrink: 0; // Previene que la etiqueta se encoja si no hay espacio.
+    white-space: nowrap;
+    flex-shrink: 0;
+    padding-left: var(--spacing-sm); // Un poco de espacio desde el borde izquierdo.
   }
 
-  // Estilos mejorados para el campo de texto.
+  // --- EL INPUT AHORA ES "INVISIBLE" ---
   .input-section input[type="text"] {
-    width: 100%; // Ocupa el espacio disponible.
-    flex-grow: 1; // Permite que el input crezca para llenar el espacio.
+    width: 100%;
+    flex-grow: 1;
     
-    // Apariencia visual
-    border: 2px solid var(--color-borde);
-    border-radius: var(--border-radius-sm);
-    padding: var(--spacing-sm) var(--spacing-md);
-    background-color: var(--color-fondo-secundario);
+    // --- LA PARTE MÁS IMPORTANTE ---
+    border: none; // ¡Sin borde propio!
+    background-color: transparent; // ¡Sin fondo propio!
+    outline: none; // ¡Fundamental para quitar el contorno por defecto!
 
-    // --- MEJORAS DE TIPOGRAFÍA ---
-    font-size: 1.3rem; // Número más grande y legible.
-    font-family: var(--font-family-mono); // Fuente monoespaciada, ideal para números.
+    // El padding vertical del input le da altura a todo el componente.
+    padding: var(--spacing-md) 0; 
+    
+    // Tipografía
+    font-size: 1.3rem;
+    font-family: var(--font-family-mono);
     color: var(--color-texto);
-
-    // Transiciones y estado de foco
-    outline: none; // Eliminamos el contorno azul por defecto del navegador.
-    transition: all var(--transition-fast);
   }
   
-  // Estilo específico para el texto del placeholder.
   .input-section input[type="text"]::placeholder {
     color: var(--color-placeholder);
-    font-family: var(--font-family-base); // Usamos la fuente normal para el placeholder.
+    font-family: var(--font-family-base);
     font-size: 1.1rem;
-  }
-
-  // --- ESTADO DE FOCO PERSONALIZADO ---
-  // Se activa cuando el usuario hace clic en el input.
-  .input-section input[type="text"]:focus {
-    border-color: var(--color-principal);
-    background-color: var(--color-blanco);
-    box-shadow: var(--shadow-focus); // Añade un "resplandor" suave.
   }
 }
