@@ -1,0 +1,19 @@
+// scss/utils/_helpers.scss
+
+@layer components { // Lo ponemos en la capa de componentes para que tenga buena especificidad
+
+  // Ayudante para el texto fonético
+  .phonetic-text {
+    font-family: var(--font-family-mono); // Usamos la fuente monoespaciada para un look más técnico
+    font-size: 1.1rem;
+    color: var(--color-texto-secundario);
+    letter-spacing: 0.5px; // Un poco de espacio extra entre letras
+
+    // ¡LA MAGIA ESTÁ AQUÍ!
+    // Estas propiedades le dicen al navegador cómo cortar palabras largas.
+    overflow-wrap: break-word; // Permite romper la palabra para evitar desbordamiento.
+    word-break: break-all;     // Una opción más agresiva si la anterior no funciona.
+    hyphens: auto;             // ¡La más importante! Le dice que puede cortar en los guiones.
+  }
+
+}

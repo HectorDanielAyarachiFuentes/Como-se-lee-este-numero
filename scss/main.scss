@@ -3,6 +3,7 @@
 // 1. HERRAMIENTAS Y CONFIGURACIÓN (Siempre primero)
 @import 'base/variables';
 @import 'utils/mixins';
+@import 'utils/helpers'; 
 
 // 2. DEFINICIÓN DEL ORDEN DE LAS CAPAS
 // El orden aquí define la especificidad: base < layout < components
@@ -23,4 +24,5 @@
   @import 'components/input';
   @import 'components/buttons';
   @import 'components/cards';
+  @import 'components/phonetic-display';
 }

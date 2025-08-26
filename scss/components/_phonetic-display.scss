@@ -1,0 +1,43 @@
+// scss/components/_phonetic-display.scss
+
+@layer components {
+
+  // El contenedor principal para el resultado fonético.
+  .phonetic-box {
+    display: flex; // Usamos Flexbox para alinear las palabras.
+    flex-wrap: wrap; // ¡La clave! Permite que las palabras pasen a la siguiente línea.
+    gap: 0.5em;      // Un espacio agradable entre cada palabra.
+    min-height: 2.5em; // Evita que la caja "salte" de tamaño cuando está vacía.
+    align-items: center;
+    padding: var(--spacing-sm);
+    border-radius: var(--border-radius-sm);
+    background-color: var(--color-fondo-secundario);
+  }
+
+  // Estilos para cada palabra/grupo de sílabas.
+  .palabra-fonetica {
+    font-family: var(--font-family-mono);
+    font-size: 1.15rem;
+    color: var(--color-texto);
+    padding: 0.2em 0.5em;
+    border-radius: var(--border-radius-sm);
+    background-color: var(--color-blanco);
+    box-shadow: var(--shadow-sm);
+
+    // Esto asegura que si una sola palabra es DEMASIADO larga,
+    // se pueda cortar para no romper el diseño.
+    overflow-wrap: break-word;
+    word-break: break-all;
+
+    // Una transición suave para el efecto de resaltado.
+    transition: all var(--transition-fast);
+  }
+
+  // El estilo que se aplica cuando una palabra está siendo leída.
+  .palabra-fonetica.highlight {
+    background-color: var(--color-highlight); // Usamos la variable de resaltado
+    color: var(--color-principal-dark);
+    transform: scale(1.05); // Un pequeño efecto de crecimiento
+    box-shadow: var(--shadow-md);
+  }
+}

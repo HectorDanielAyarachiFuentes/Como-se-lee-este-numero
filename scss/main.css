@@ -50,6 +50,18 @@
 /* ==========================================================================
    MIXINS GLOBALES
    ========================================================================== */
+@layer components {
+  .phonetic-text {
+    font-family: var(--font-family-mono);
+    font-size: 1.1rem;
+    color: var(--color-texto-secundario);
+    letter-spacing: 0.5px;
+    overflow-wrap: break-word;
+    word-break: break-all;
+    -webkit-hyphens: auto;
+            hyphens: auto;
+  }
+}
 @layer base, layout, components;
 @layer base {
   /* ==========================================================================
@@ -356,6 +368,36 @@
     }
     .svg-etiqueta-vertical {
       font-size: 12px;
+    }
+  }
+  @layer components {
+    .phonetic-box {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5em;
+      min-height: 2.5em;
+      align-items: center;
+      padding: var(--spacing-sm);
+      border-radius: var(--border-radius-sm);
+      background-color: var(--color-fondo-secundario);
+    }
+    .palabra-fonetica {
+      font-family: var(--font-family-mono);
+      font-size: 1.15rem;
+      color: var(--color-texto);
+      padding: 0.2em 0.5em;
+      border-radius: var(--border-radius-sm);
+      background-color: var(--color-blanco);
+      box-shadow: var(--shadow-sm);
+      overflow-wrap: break-word;
+      word-break: break-all;
+      transition: all var(--transition-fast);
+    }
+    .palabra-fonetica.highlight {
+      background-color: var(--color-highlight);
+      color: var(--color-principal-dark);
+      transform: scale(1.05);
+      box-shadow: var(--shadow-md);
     }
   }
 }/*# sourceMappingURL=main.css.map */
