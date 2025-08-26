@@ -1,22 +1,23 @@
-// scss/main.scss (Versión corregida sin layout)
+// scss/main.scss
 
-// 1. HERRAMIENTAS Y CONFIGURACIÓN
+// 1. HERRAMIENTAS Y CONFIGURACIÓN (Siempre primero)
 @import 'base/variables';
 @import 'utils/mixins';
 
-// 2. DEFINICIÓN DE CAPAS (Ajustamos sin layout)
-@layer base, components; // Eliminamos 'layout' de aquí
+// 2. DEFINICIÓN DEL ORDEN DE LAS CAPAS
+// El orden aquí define la especificidad: base < layout < components
+@layer base, layout, components;
 
 // 3. IMPORTACIÓN DE ESTILOS DENTRO DE SUS CAPAS
 @layer base {
   @import 'base/base';
 }
 
-// Ya no necesitamos la capa layout porque no tenemos esos archivos
-// @layer layout {
-//   @import 'layout/container';
-//   @import 'layout/header';
-// }
+@layer layout {
+  // ¡Aquí están nuestros nuevos archivos!
+  @import 'layout/header';
+  @import 'layout/container';
+}
 
 @layer components {
   @import 'components/input';

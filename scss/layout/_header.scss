@@ -1,0 +1,25 @@
+// scss/layout/_header.scss
+
+@layer layout {
+  // Aplicamos estilos directamente a la etiqueta <header> que está dentro de .container
+  .container > header {
+    width: 100%;
+    margin-bottom: var(--spacing-xl);
+    text-align: center;
+  }
+
+  // Estilos para el h1 dentro del header
+  .container > header h1 {
+    font-size: 2.5rem;
+    color: var(--color-principal-dark);
+    margin-bottom: var(--spacing-sm);
+  }
+
+  // Estilos para el p dentro del header
+  .container > header p {
+    font-size: 1.1rem;
+    color: var(--color-texto-secundario);
+    max-width: 600px;
+    margin: 0 auto;
+  }
+}

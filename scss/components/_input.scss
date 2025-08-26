@@ -1,66 +1,35 @@
-/* ==========================================================================
-   COMPONENTE: SECCIÓN DE ENTRADA
-   ========================================================================== */
+// scss/components/_input.scss
 
-.input-section {
-  text-align: center;
-  background-color: var(--color-blanco);
-  border-radius: var(--border-radius-md);
-  padding: var(--spacing-xl);
-  box-shadow: var(--shadow-md);
-  border: 1px solid var(--color-borde-claro);
+// ... (tus otros estilos de input)
 
-  &__label {
-    display: block;
-    font-size: 1.15rem;
-    font-weight: var(--font-weight-medium);
-    margin-block-end: var(--spacing-lg); // Propiedad lógica moderna
-    color: var(--color-texto);
-  }
-
-  &__field {
-    // Usamos clamp() para que el tamaño del texto y el padding sean fluidos
-    font-size: clamp(1.3rem, 4vw, 1.7rem);
-    padding: clamp(0.8rem, 2vw, 1.1rem) var(--spacing-lg);
-    
-    width: 70%;
-    max-width: 480px;
-    border: 2px solid var(--color-borde);
-    border-radius: var(--border-radius-sm);
-    text-align: center;
-    font-family: var(--font-family-mono);
-    font-weight: var(--font-weight-bold);
-    color: var(--color-principal);
-    background-color: var(--color-fondo-secundario);
-    transition: border-color var(--transition-smooth), box-shadow var(--transition-smooth);
-    appearance: none;
-
-    &::placeholder {
-      color: var(--color-placeholder);
-      font-weight: var(--font-weight-regular);
-    }
-    
-    // Usamos nuestro mixin para un foco perfecto y accesible
-    @include focus-ring(var(--border-radius-sm));
-  }
-
-  // Media queries con nuestro mixin
-  @include breakpoint(md) {
+@layer components {
+  // Estilos para el contenedor del input, para que parezca una tarjeta
+  .input-section {
+    background-color: var(--color-blanco);
+    border-radius: var(--border-radius-md);
     padding: var(--spacing-lg);
-    &__field {
-      width: 80%;
-    }
+    box-shadow: var(--shadow-md);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    font-size: 1.1rem;
+  }
+  
+  .input-section label {
+      font-weight: var(--font-weight-medium);
+      color: var(--color-texto-secundario);
   }
 
-  @include breakpoint(sm) {
-    padding: var(--spacing-md);
-    box-shadow: var(--shadow-sm);
-    &__label {
-      font-size: 1rem;
-      margin-block-end: var(--spacing-md);
-    }
-    &__field {
-      width: 95%;
-    }
+  .input-section input {
+      flex-grow: 1; // Hace que el input ocupe el espacio restante
+      border: 1px solid var(--color-borde);
+      border-radius: var(--border-radius-sm);
+      padding: var(--spacing-sm);
+  }
+
+  .input-section input:focus {
+      outline: none;
+      border-color: var(--color-principal);
+      box-shadow: var(--shadow-focus);
   }
 }
