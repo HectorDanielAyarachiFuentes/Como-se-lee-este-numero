@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lector de Números</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Lector de Números</h1>
+            <p>Introduce un número (con o sin decimales) y explora sus diferentes lecturas.</p>
+        </header>
+
+        <div class="input-section">
+            <label for="numero">Introduce el número:</label>
+            <input type="text" id="numero" placeholder="Ej: 1234,56" autocomplete="off">
+        </div>
+
+        <div class="card">
+            <h2>Lectura Simple</h2>
+            <div id="resultado" class="result-box">
+                <span class="placeholder-text">La lectura del número aparecerá aquí.</span>
+            </div>
+            <button id="play-simple-btn" class="play-btn">▶️ Escuchar</button>
+        </div>
+
+        <div class="card">
+            <h2>Modo de Aprendizaje Fonético</h2>
+            <div id="aprendizaje-fonetico-resultado" class="result-box phonetic-box">
+                 <span class="placeholder-text">Desglose fonético...</span>
+            </div>
+            <button id="play-phonetic-btn" class="play-btn">▶️ Escuchar y Resaltar</button>
+        </div>
+
+        <div class="card">
+            <h2>Modo de Aprendizaje Formal (Gráfico)</h2>
+            <div id="aprendizaje-formal-wrapper" class="result-box svg-box">
+                 <span class="placeholder-text">Representación gráfica...</span>
+            </div>
+            <button id="play-formal-btn" class="play-btn">▶️ Escuchar y Resaltar</button>
+        </div>
+    </div>
+
+    <script type="module" src="js/main.js"></script>
+</body>
+</html>
