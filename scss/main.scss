@@ -1,23 +1,22 @@
-// 1. HERRAMIENTAS Y CONFIGURACIÓN (No generan CSS por sí mismas)
-// Se importan primero para que estén disponibles para todos los demás archivos.
+// scss/main.scss (Versión corregida sin layout)
+
+// 1. HERRAMIENTAS Y CONFIGURACIÓN
 @import 'base/variables';
 @import 'utils/mixins';
 
-
-// 2. DEFINICIÓN DE CAPAS (El orden en que se aplicarán las reglas CSS)
-@layer base, layout, components;
-
+// 2. DEFINICIÓN DE CAPAS (Ajustamos sin layout)
+@layer base, components; // Eliminamos 'layout' de aquí
 
 // 3. IMPORTACIÓN DE ESTILOS DENTRO DE SUS CAPAS
 @layer base {
-  // Aquí solo van los estilos que generan CSS, como resets, body, etc.
   @import 'base/base';
 }
 
-@layer layout {
-  @import 'layout/container';
-  @import 'layout/header';
-}
+// Ya no necesitamos la capa layout porque no tenemos esos archivos
+// @layer layout {
+//   @import 'layout/container';
+//   @import 'layout/header';
+// }
 
 @layer components {
   @import 'components/input';

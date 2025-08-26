@@ -4,7 +4,7 @@
    ========================================================================== */
 :root {
   /* --- Paleta de Colores --- */
-  --color-fondo: #F0F2F5;
+  --color-fondo: #1843cf;
   --color-fondo-secundario: #E8ECF1;
   --color-blanco: #FFFFFF;
   --color-texto: #2C3E50;
@@ -50,7 +50,7 @@
 /* ==========================================================================
    MIXINS GLOBALES
    ========================================================================== */
-@layer base, layout, components;
+@layer base, components;
 @layer base {
   /* ==========================================================================
      BASE Y RESETEO MODERNO
@@ -107,78 +107,6 @@
   ::selection {
     background-color: var(--color-principal);
     color: var(--color-blanco);
-  }
-}
-@layer layout {
-  /* Contenedor Principal de la Aplicación */
-  .container {
-    max-width: 900px;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 1.75rem;
-  }
-  @media (max-width: 768px) {
-    .container {
-      gap: 1.5rem;
-    }
-  }
-  @media (max-width: 576px) {
-    .container {
-      gap: 1rem;
-    }
-  }
-  /* --- Estilos del Encabezado (Header) --- */
-  header {
-    text-align: center;
-    margin-bottom: 2rem;
-    padding: 2rem 0;
-  }
-  header h1 {
-    font-family: "Roboto", sans-serif;
-    color: var(--color-principal);
-    font-size: 2.6rem;
-    font-weight: 700;
-    letter-spacing: -0.02em;
-    margin-bottom: 0.75rem;
-  }
-  header p {
-    font-size: 1.05rem;
-    color: var(--color-texto-secundario);
-    max-width: 650px;
-    margin: 0.75rem auto 0;
-  }
-  @media (max-width: 768px) {
-    header {
-      margin-bottom: 1.5rem;
-      padding: 1.5rem 0;
-    }
-    header h1 {
-      font-size: 2.2rem;
-    }
-    header p {
-      font-size: 1rem;
-      max-width: 500px;
-    }
-  }
-  @media (max-width: 576px) {
-    header {
-      margin-bottom: 1rem;
-      padding: 1rem 0;
-    }
-    header h1 {
-      font-size: 1.8rem;
-      letter-spacing: 0;
-    }
-    header p {
-      font-size: 0.95rem;
-      max-width: 90%;
-    }
-  }
-  @media (max-width: 375px) {
-    header h1 {
-      font-size: 1.6rem;
-    }
   }
 }
 @layer components {
