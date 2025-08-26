@@ -1,23 +1,25 @@
-// Definimos el orden de las capas. Base -> Layout -> Componentes.
+// 1. HERRAMIENTAS Y CONFIGURACIÓN (No generan CSS por sí mismas)
+// Se importan primero para que estén disponibles para todos los demás archivos.
+@import 'base/variables';
+@import 'utils/mixins';
+
+
+// 2. DEFINICIÓN DE CAPAS (El orden en que se aplicarán las reglas CSS)
 @layer base, layout, components;
 
+
+// 3. IMPORTACIÓN DE ESTILOS DENTRO DE SUS CAPAS
 @layer base {
-  // 1. Base y Variables
-  @import 'base/variables';
+  // Aquí solo van los estilos que generan CSS, como resets, body, etc.
   @import 'base/base';
 }
 
-// Importamos las utilidades (no necesitan capa, son herramientas)
-@import 'utils/mixins';
-
 @layer layout {
-  // 2. Layout (Lo haremos después)
   @import 'layout/container';
   @import 'layout/header';
 }
 
 @layer components {
-  // 3. Componentes
   @import 'components/input';
   @import 'components/buttons';
   @import 'components/cards';
