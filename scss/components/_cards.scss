@@ -64,6 +64,38 @@
   }
 }
 
+/* Mejoras para la sección formal (gráfica) */
+.svg-box {
+  background-color: #000;
+  border-radius: var(--border-radius-sm);
+  padding: var(--spacing-md);
+  color: #e74c3c; /* rojo vibrante para números decimales */
+  font-weight: var(--font-weight-bold);
+  font-family: var(--font-family-mono);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+.svg-numero {
+  background-color: #111;
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: var(--border-radius-sm);
+  color: #27ae60; /* verde vibrante para parte entera */
+  font-weight: var(--font-weight-bold);
+}
+
+.svg-etiqueta-principal {
+  fill: #27ae60; /* verde vibrante */
+  font-weight: var(--font-weight-bold);
+}
+
+.svg-etiqueta-vertical {
+  fill: #e74c3c; /* rojo vibrante */
+  font-weight: var(--font-weight-bold);
+}
+
 /* --------------------------------------------------------------------------
    ELEMENTO: CAJA DE RESULTADO (DENTRO DE LA TARJETA)
    -------------------------------------------------------------------------- */

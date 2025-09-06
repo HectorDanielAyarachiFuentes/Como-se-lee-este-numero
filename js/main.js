@@ -1,4 +1,4 @@
-// js/main.js
+/* js/main.js */
 
 // Importar todos los módulos necesarios
 import { NumberConverter, SpeechService } from './utils.js';
@@ -9,8 +9,7 @@ import { FormalMode } from './formal-mode.js';
  * CONTROLADOR PRINCIPAL (Orquesta la aplicación)
  */
 const App = {
-    // ... (el código completo de App va aquí, sin cambios)
-     // Referencias al DOM
+    // Referencias al DOM
     elements: {
         input: null,
         simpleResultDiv: null,
@@ -51,6 +50,7 @@ const App = {
 
         // Establecer el estado inicial de la UI
         this.resetUI();
+        this.updateButtonStates();
     },
 
     handleInput() {
@@ -63,6 +63,7 @@ const App = {
         // 2. Resetear UI y estado si el input está vacío
         if (!val) {
             this.resetUI();
+            this.updateButtonStates();
             return;
         }
 
@@ -94,6 +95,7 @@ const App = {
        
         // 4. Actualizar la UI con el nuevo estado
         this.renderUI(pEnteraStr, pDecimalStr);
+        this.updateButtonStates();
     },
 
     renderUI(pEnteraStr, pDecimalStr) {
@@ -111,26 +113,41 @@ const App = {
         PhoneticMode.reset();
         FormalMode.reset();
     },
+
+    updateButtonStates() {
+        const hasInput = !!this.elements.input.value.trim();
+        this.elements.playSimpleBtn.disabled = !hasInput;
+        this.elements.playPhoneticBtn.disabled = !hasInput;
+        this.elements.playFormalBtn.disabled = !hasInput;
+    },
     
     // Métodos para los botones de reproducción
     playSimple() {
         if (!this.state.simpleText) { alert("Escribe un número."); return; }
+        this.animateButton(this.elements.playSimpleBtn);
         SpeechService.speak(this.state.simpleText);
     },
 
     playPhonetic() {
         if (!this.state.simpleText) { alert("Escribe un número."); return; }
+        this.animateButton(this.elements.playPhoneticBtn);
         PhoneticMode.play(this.state.simpleText);
     },
     
     playFormal() {
         if (!this.state.formalText) { alert("Escribe un número."); return; }
+        this.animateButton(this.elements.playFormalBtn);
         FormalMode.play({
             fullText: this.state.formalText,
             integerText: this.state.integerText,
             decimalText: this.state.decimalText,
             unitText: this.state.unitText
         });
+    },
+
+    animateButton(button) {
+        button.classList.add('active');
+        setTimeout(() => button.classList.remove('active'), 300);
     }
 };
 
