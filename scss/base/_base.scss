@@ -31,11 +31,12 @@
   body {
     font-family: var(--font-family-base);
     font-weight: var(--font-weight-regular);
-    background-color: var(--color-fondo);
+    background: var(--color-fondo);
+    background-attachment: fixed;
     color: var(--color-texto);
     min-height: 100vh;
     line-height: 1.6;
-    
+
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 

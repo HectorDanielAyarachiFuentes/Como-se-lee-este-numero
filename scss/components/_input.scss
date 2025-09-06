@@ -1,5 +1,5 @@
 // scss/components/_input.scss
-@use 'variables' as *; // 
+@use '../base/variables' as *;
 @layer components {
 
   // El contenedor ahora actúa como el campo de texto visual.

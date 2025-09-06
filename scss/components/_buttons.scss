@@ -1,35 +1,38 @@
 /* ==========================================================================
    COMPONENTE: BOTÓN DE ACCIÓN
    ========================================================================== */
-@use 'variables' as *; // 
+@use '../base/variables' as *;
+@use '../utils/mixins' as *;
 .play-btn {
   display: inline-flex; // Ideal para alinear ícono y texto
   align-items: center;
   justify-content: center;
   gap: var(--spacing-sm);
-  
+
   padding: var(--spacing-sm) var(--spacing-xl);
   font-size: 1.05rem;
   font-weight: var(--font-weight-medium);
-  
-  background-color: var(--color-principal);
+
+  background: var(--gradient-button);
+  background-size: 200% 200%;
+  background-position: 0% 50%;
   color: var(--color-blanco);
   border: none;
   border-radius: var(--border-radius-sm);
   box-shadow: var(--shadow-sm);
-  
+
   cursor: pointer;
   text-align: center;
-  transition: 
-    background-color var(--transition-fast), 
-    transform var(--transition-fast), 
+  transition:
+    background-position var(--transition-smooth),
+    transform var(--transition-fast),
     box-shadow var(--transition-fast);
-  
+
   // Usamos nuestro mixin de foco
   @include focus-ring(var(--border-radius-sm));
 
   &:hover {
-    background-color: var(--color-principal-dark);
+    background-position: 100% 50%;
     transform: translateY(-2px); // Un poco más de efecto
     box-shadow: var(--shadow-md);
   }
@@ -41,12 +44,12 @@
 
   // Estado deshabilitado para una UI más completa
   &[disabled] {
-    background-color: var(--color-texto-secundario);
+    background: var(--color-texto-secundario);
     cursor: not-allowed;
     transform: none;
     box-shadow: none;
   }
-  
+
   @include breakpoint(sm) {
     padding: var(--spacing-sm) var(--spacing-lg);
     font-size: 0.95rem;

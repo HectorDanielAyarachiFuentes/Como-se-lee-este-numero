@@ -2,17 +2,20 @@
    MIXINS GLOBALES
    ========================================================================== */
 
+// Importar las variables SCSS
+@use '../base/variables' as vars;
+
 // Mixin para manejar breakpoints de forma limpia y semántica.
 // Uso: @include breakpoint(md) { ...estilos... }
 @mixin breakpoint($size) {
   @if $size == lg {
-    @media (max-width: $breakpoint-lg) { @content; }
+    @media (max-width: vars.$breakpoint-lg) { @content; }
   }
   @else if $size == md {
-    @media (max-width: $breakpoint-md) { @content; }
+    @media (max-width: vars.$breakpoint-md) { @content; }
   }
   @else if $size == sm {
-    @media (max-width: $breakpoint-sm) { @content; }
+    @media (max-width: vars.$breakpoint-sm) { @content; }
   }
 }
 

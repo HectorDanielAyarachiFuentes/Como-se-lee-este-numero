@@ -1,11 +1,19 @@
 // scss/layout/_header.scss
-@use 'variables' as *; // 
+@use '../base/variables' as *;
 @layer layout {
   // Aplicamos estilos directamente a la etiqueta <header> que está dentro de .container
   .container > header {
     width: 100%;
     margin-bottom: var(--spacing-xl);
     text-align: center;
+    padding: var(--spacing-md);
+    background: var(--color-principal-light);
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--shadow-md);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-sm);
   }
 
   // Estilos para el h1 dentro del header
@@ -21,5 +29,14 @@
     color: var(--color-texto-secundario);
     max-width: 600px;
     margin: 0 auto;
+  }
+
+  // Estilo para la imagen dentro del header
+  .container > header img {
+    width: 120px;
+    height: auto;
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--shadow-md);
+    object-fit: cover;
   }
 }

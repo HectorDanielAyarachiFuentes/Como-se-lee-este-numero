@@ -5,29 +5,34 @@
 :root {
   /* --- Paleta de Colores --- */
   // Base
-  --color-fondo: #eedfdf89;
-  --color-fondo-secundario: #E8ECF1;
+  --color-fondo: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  --color-fondo-secundario: #f8f9fa;
   --color-blanco: #FFFFFF;
 
   // Texto
-  --color-texto: #2C3E50;
-  --color-texto-secundario: #6C7A89;
-  --color-placeholder: #9BA8B5;
+  --color-texto: #2d3748;
+  --color-texto-secundario: #718096;
+  --color-placeholder: #a0aec0;
 
   // Marca (Brand)
-  --color-principal: #34495E;
-  --color-principal-dark: #2C3E50;
-  --color-principal-light: rgba(52, 73, 94, 0.15);
+  --color-principal: #4a5568;
+  --color-principal-dark: #2d3748;
+  --color-principal-light: rgba(74, 85, 104, 0.1);
 
   // Semántica y Educativa
-  --color-entero: #27AE60;
-  --color-decimal: #C0392B;
-  --color-coma: #E67E22;
-  --color-highlight: #F39C12; // Resaltado interactivo
+  --color-entero: #38a169;
+  --color-decimal: #e53e3e;
+  --color-coma: #dd6b20;
+  --color-highlight: #ed8936; // Resaltado interactivo
 
   // UI (Bordes y Sombras)
-  --color-borde: #D3DCE6;
-  --color-borde-claro: #E9EEF3;
+  --color-borde: #e2e8f0;
+  --color-borde-claro: #edf2f7;
+
+  // Gradientes para efectos modernos
+  --gradient-principal: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --gradient-card: linear-gradient(135deg, #f093fb 0%, #f5576c 50%, #4facfe 100%);
+  --gradient-button: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
 
   /* --- Tipografía --- */
   --font-family-base: 'Roboto', sans-serif;

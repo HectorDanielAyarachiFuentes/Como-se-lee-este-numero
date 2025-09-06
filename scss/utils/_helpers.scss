@@ -1,5 +1,5 @@
 // scss/utils/_helpers.scss
-@use 'variables' as *; // 
+@use '../base/variables' as *;
 @layer components { // Lo ponemos en la capa de componentes para que tenga buena especificidad
 
   // Ayudante para el texto fonético
